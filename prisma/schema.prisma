@@ -12,7 +12,6 @@ datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
-
 model User {
   id   String @id @default(uuid())
   name String
@@ -24,7 +23,7 @@ model Barbershop {
   id      String    @id @default(uuid())
   name    String
   address String
-  imgURL  String
+  imgUrl  String
   Service Service[]
   Booking Booking[]
 }
@@ -36,6 +35,7 @@ model Service {
   barbershopId String
   barbershop   Barbershop @relation(fields: [barbershopId], references: [id])
   description  String
+  imageUrl     String      // Añade esta línea
 
   Booking Booking[]
 }
